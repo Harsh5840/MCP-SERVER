@@ -49,4 +49,4 @@ def edit_doc(
 
 
 if __name__ == "__main__":
-    mcp.run(transport="stdio")
+    mcp.run(transport="stdio")  #this line means that the server will run on the console , transport can be "stdio" or "grpc" , stdio means that the server will run on the console and grpc means that the server will run on a grpc server
