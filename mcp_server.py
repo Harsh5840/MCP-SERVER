@@ -29,7 +29,19 @@ def read_doc(
     
 # TODO: Write a tool to edit a doc
 
-
+@mcp.tool(
+    name="edit_the_doc",
+    description="Edit the content of the given document"
+)
+def edit_doc(
+    doc_id:str = Field(description="id of the document to be edited"),
+    old_content:str = Field(description="old content of the document"), 
+    new_content:str = Field(description="new content of the document")
+):
+    if doc_id not in docs:
+        raise ValueError(f"Doc id {doc_id} not found in original doc")
+    docs[doc_id] = docs[doc_id].replace(old_content, new_content)
+    return docs[doc_id]
 # TODO: Write a resource to return all doc id's
 # TODO: Write a resource to return the contents of a particular doc
 # TODO: Write a prompt to rewrite a doc in markdown format
